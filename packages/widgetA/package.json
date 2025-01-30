@@ -1,0 +1,42 @@
+{
+    "name": "@repo/widget-a",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "sideEffects": false,
+    "exports": "./src/index.ts",
+    "scripts": {
+        "build": "rslib build --config ./rslib.build.ts",
+        "lint": "eslint . --max-warnings 0",
+        "check-types": "tsc --noEmit"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "exports": {
+            ".": {
+                "types": "./dist/index.d.ts",
+                "import": "./dist/index.js",
+                "default": "./dist/index.js"
+            }
+        }
+    },
+    "devDependencies": {
+        "@turbo/gen": "^2.3.4",
+        "@types/node": "^22.12.0",
+        "@types/react": "19.0.8",
+        "@types/react-dom": "19.0.3",
+        "typescript": "5.7.3",
+        "@rsbuild/core": "1.2.3",
+        "@rslib/core": "0.4.0",
+        "@typescript-eslint/parser": "8.22.0",
+        "@workleap/eslint-plugin": "3.2.6",
+        "@workleap/rslib-configs": "1.0.2",
+        "@workleap/typescript-configs": "^3.0.2"
+    },
+    "peerDependencies": {
+        "@repo/lib": "workspace:*",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    }
+}
